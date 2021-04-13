@@ -1,0 +1,17 @@
+Passing data from Controller to View
+	We can use 
+		Viewbag,
+		Viewdata,
+		TempData
+
+ViewData passes data from controller to view:
+	Is a dictionary of objects
+	Exists only during the current request, means we cannot share data in between 
+	views
+	ViewData value becomes null if the request is redirected
+	It requires typecasting when you use complex data type to avoid error
+	Syntax: 
+	ViewData["Key"] = <Value>;
+
+Note: 	ViewData does not provide compile time error checking, you get to know about the
+	error only at runtime

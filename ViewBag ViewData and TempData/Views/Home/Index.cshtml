@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<br /><br /><br />
+
+
+<p class="alert alert-danger">@ViewData["Message"]</p>
+
+
+<ul>
+    @{
+        foreach (string fruit in (string[])ViewData["Fruits"])
+        {
+            <li>@fruit</li>
+        }
+    }
+</ul>
+
+<ul>
+    @{
+        foreach (string sport in (List<string>)ViewData["SportsList"])
+        {
+            <li>@sport</li>
+        }
+    }
+</ul>
+
+
+@{ 
+    var Ali = (ViewBag_ViewData_and_TempData.Models.Employee)ViewData["Ali"];
+}
+
+<p>@Ali.EmpId</p>
+<p>@Ali.EmpName</p>
+<p>@Ali.EmpDesignation</p>
