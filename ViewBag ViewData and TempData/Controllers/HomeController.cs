@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using ViewBag_ViewData_and_TempData.Models;
 
@@ -11,24 +9,31 @@ namespace ViewBag_ViewData_and_TempData.Controllers
     {
         public ActionResult Index()
         {
-            string err = "Hey, stop there you dummy";
-            ViewData["Message"] = err;
-            string[] fruits = { "apple", "banana", "mango", "guvava" };
-            ViewData["Fruits"] = fruits;
+            ViewBag.Message = "Message from ViewBag";
+            ViewBag.CurrentDate = DateTime.Now.ToLongDateString();
 
-            ViewData["SportsList"] = new List<string>()
+            string[] dbs = { "mongodb", "oracle", "mssql", "mysql", "fedora" };
+            ViewBag.Databases = dbs;
+
+            ViewBag.Cars = new List<string>()
             {
-                "Circket",
-                "Hockey",
-                "Football",
-                "Baseball"
+                "Audi",
+                "Ferreri",
+                "Lamborghini",
+                "Maserati",
+                "Alfa Romeo"
             };
-            Employee Ali = new Employee();
-            Ali.EmpId = 1;
-            Ali.EmpName = "Muhammad Ali";
-            Ali.EmpDesignation = "Manager";
 
-            ViewData["Ali"] = Ali;
+            Employee _1 = new Employee
+            {
+                EmpId = 2,
+                EmpName = "Usman",
+                EmpDesignation = "CEO"
+            };
+
+            ViewBag.Employee = _1;
+
+
             return View();
         }
 

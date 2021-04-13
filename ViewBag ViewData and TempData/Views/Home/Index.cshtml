@@ -2,35 +2,51 @@
     ViewBag.Title = "Home Page";
 }
 
-<br /><br /><br />
+<br />
+<br />
+<br />
 
-
-<p class="alert alert-danger">@ViewData["Message"]</p>
-
-
+<h6>@ViewBag.Message</h6>
+<h6>@ViewBag.CurrentDate</h6>
 <ul>
-    @{
-        foreach (string fruit in (string[])ViewData["Fruits"])
-        {
-            <li>@fruit</li>
-        }
+    @{ 
+        //! We dont need casting in ViewBag
+        foreach (string db in ViewBag.Databases)
+            {
+                <li>
+                    @db
+                </li>
+            }
     }
 </ul>
 
 <ul>
     @{
-        foreach (string sport in (List<string>)ViewData["SportsList"])
+        //! We dont need casting in ViewBag
+        foreach (string car in ViewBag.Cars)
         {
-            <li>@sport</li>
+            <li>
+                @car
+            </li>
         }
     }
 </ul>
 
 
-@{ 
-    var Ali = (ViewBag_ViewData_and_TempData.Models.Employee)ViewData["Ali"];
-}
 
-<p>@Ali.EmpId</p>
-<p>@Ali.EmpName</p>
-<p>@Ali.EmpDesignation</p>
+    @{ 
+        var a = ViewBag.Employee;
+    }
+<p>
+    <!-- Does not provide intellisense on compile time, returns results on runtime so 
+        we dont get any intellisense while compiling -->
+    @a.EmpId 
+    @a.EmpName
+    @a.EmpDesignation
+</p>
+
+<p>
+    ViewData and ViewBag can interchange data<br />
+    @ViewData["Message"] <br />
+    @ViewBag.Message
+</p>
