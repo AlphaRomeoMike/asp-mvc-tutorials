@@ -3,50 +3,13 @@
 }
 
 <br />
-<br />
-<br />
-
-<h6>@ViewBag.Message</h6>
-<h6>@ViewBag.CurrentDate</h6>
-<ul>
-    @{ 
-        //! We dont need casting in ViewBag
-        foreach (string db in ViewBag.Databases)
-            {
-                <li>
-                    @db
-                </li>
-            }
-    }
-</ul>
+<p class="text text-danger">@TempData["Message"]</p>
 
 <ul>
     @{
-        //! We dont need casting in ViewBag
-        foreach (string car in ViewBag.Cars)
+        foreach (string game in (string[])TempData["Games"])
         {
-            <li>
-                @car
-            </li>
+            <li>@game</li>
         }
     }
 </ul>
-
-
-
-    @{ 
-        var a = ViewBag.Employee;
-    }
-<p>
-    <!-- Does not provide intellisense on compile time, returns results on runtime so 
-        we dont get any intellisense while compiling -->
-    @a.EmpId 
-    @a.EmpName
-    @a.EmpDesignation
-</p>
-
-<p>
-    ViewData and ViewBag can interchange data<br />
-    @ViewData["Message"] <br />
-    @ViewBag.Message
-</p>

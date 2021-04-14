@@ -9,45 +9,26 @@ namespace ViewBag_ViewData_and_TempData.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Message from ViewBag";
-            ViewBag.CurrentDate = DateTime.Now.ToLongDateString();
+            //! has the shorted lifecycle, destroys after changing one view
+            TempData["Message"] = "Message from TempData";
 
-            string[] dbs = { "mongodb", "oracle", "mssql", "mysql", "fedora" };
-            ViewBag.Databases = dbs;
+            string[] games = { "Counter Strike", "PUBG", "ARMA 3", "DayZ", "Grand Theft Auto" };
 
-            ViewBag.Cars = new List<string>()
-            {
-                "Audi",
-                "Ferreri",
-                "Lamborghini",
-                "Maserati",
-                "Alfa Romeo"
-            };
-
-            Employee _1 = new Employee
-            {
-                EmpId = 2,
-                EmpName = "Usman",
-                EmpDesignation = "CEO"
-            };
-
-            ViewBag.Employee = _1;
-
-
+            TempData["Games"] = games;
             return View();
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
+            if(TempData["Games"] != null)
+            {
+                TempData["Games"].ToString();
+            } 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }

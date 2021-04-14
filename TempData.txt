@@ -1,0 +1,11 @@
+Passing data from Controller to View
+	We can use 
+		Viewbag,
+		Viewdata,
+		TempData
+
+ViewBag passes data from controller to view:
+	Can only transfer data from subsequent request
+	to the next view to be consumed
+	Has the shortest lifecycle of all three 
+	techniques
